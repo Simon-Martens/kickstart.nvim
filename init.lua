@@ -797,6 +797,44 @@ require('lazy').setup {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
+    dependencies = {
+      {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        lazy = true,
+        config = function()
+          require('nvim-treesitter.configs').setup {
+            textobjects = {
+              select = {
+                enable = true,
+                lookahead = true,
+                keymaps = {
+                  ['a='] = '@assignment.outer',
+                  ['i='] = '@assignment.inner',
+                  ['af'] = '@function.outer',
+                  ['if'] = '@function.inner',
+                  ['ac'] = '@class.outer',
+                  ['ic'] = '@class.inner',
+                  ['l='] = '@assignment.lhs',
+                  ['r='] = '@assignment.rhs',
+                  ['aa'] = '@parameter.outer',
+                  ['ia'] = '@parameter.inner',
+                  ['ai'] = '@conditional.outer',
+                  ['ii'] = '@conditional.inner',
+                  ['ab'] = '@block.outer',
+                  ['ib'] = '@block.inner',
+                  ['al'] = '@loop.outer',
+                  ['il'] = '@loop.inner',
+                  ['as'] = '@statement.outer',
+                  ['is'] = '@statement.inner',
+                },
+              },
+            },
+          }
+        end,
+      },
+      'nvim-treesitter/nvim-treesitter-refactor',
+      'nvim-treesitter/nvim-treesitter-context',
+    },
     config = function()
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
