@@ -832,8 +832,6 @@ require('lazy').setup {
           }
         end,
       },
-      'nvim-treesitter/nvim-treesitter-refactor',
-      'nvim-treesitter/nvim-treesitter-context',
     },
     config = function()
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
@@ -845,6 +843,17 @@ require('lazy').setup {
         auto_install = true,
         highlight = { enable = true },
         indent = { enable = true },
+
+        -- Incremental selection
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = 'gnn',
+            node_incremental = 'grn',
+            scope_incremental = 'grc',
+            node_decremental = 'grm',
+          },
+        },
       }
 
       -- There are additional nvim-treesitter modules that you can use to interact
