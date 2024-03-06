@@ -159,6 +159,9 @@ vim.opt.et = false
 -- See `:help 'relativenumber'`
 vim.opt.relativenumber = true
 
+-- Disable folding, we don't need it
+vim.opt.fen = false
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -855,7 +858,6 @@ require('lazy').setup {
         auto_install = true,
         highlight = { enable = true },
         indent = { enable = true },
-
         -- Incremental selection
         incremental_selection = {
           enable = true,
@@ -876,6 +878,8 @@ require('lazy').setup {
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
   },
+
+  -- Handling of huge files
   {
     'LunarVim/bigfile.nvim',
     -- default config
@@ -896,6 +900,14 @@ require('lazy').setup {
       }
     end,
   },
+
+  -- Always keep the cursor vertically centered
+  -- {
+  --   'arnamak/stay-centered.nvim',
+  --   config = function()
+  --     require('stay-centered').setup()
+  --   end,
+  -- },
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- put them in the right spots if you want.
