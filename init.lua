@@ -281,15 +281,8 @@ require('lazy').setup {
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- Github Copilot
-  -- { 'github/copilot.vim', opts = { no_tab_maps = true } },
-  {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
-    config = function()
-      require('copilot').setup {}
-    end,
-  },
+  { 'github/copilot.vim', opts = { no_tab_maps = true } },
+
   -- Fugitive
   -- This is a Git wrapper for Neovim. It's a great way to interact with git
   'tpope/vim-fugitive',
